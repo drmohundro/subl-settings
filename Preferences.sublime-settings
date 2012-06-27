@@ -3,6 +3,13 @@
 	"font_face": "Envy Code R",
 	"font_size": 14,
 	"highlight_line": true,
+
+	"file_exclude_patterns": [
+		"*.jpg",
+		"*.gif",
+		"*.png"
+	],
+
 	"ignored_packages":
 	[
 	],

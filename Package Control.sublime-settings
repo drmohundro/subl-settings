@@ -1,11 +1,15 @@
 {
-	"auto_upgrade_last_run": 1340753660,
+	"auto_upgrade_last_run": 1340806954,
 	"installed_packages":
 	[
 		"CoffeeScript",
 		"Git",
 		"IcedCoffeeScript",
+		"LESS",
 		"Package Control",
+		"PowerShell",
+		"Sass",
+		"SideBarEnhancements",
 		"SublimeHg",
 		"VintageEx"
 	]

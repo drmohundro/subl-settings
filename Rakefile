@@ -57,10 +57,9 @@ def is_windows?
 end
 
 def root_path
-  # TODO: MO> get the path for windows...
-  sublime_settings = is_windows? ?
-    "#{root_path}/AppData/Sublime Text 2" :
+  sublime_root = is_windows? ?
+    "#{ENV['AppData']}/Sublime Text 2" :
     File.expand_path('~/Library/Application Support/Sublime Text 2')
 
-  "#{sublime_settings}/Packages/User"
+  "#{sublime_root}/Packages/User"
 end
