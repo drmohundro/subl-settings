@@ -1,0 +1,12 @@
+{
+	"auto_upgrade_last_run": 1340753660,
+	"installed_packages":
+	[
+		"CoffeeScript",
+		"Git",
+		"IcedCoffeeScript",
+		"Package Control",
+		"SublimeHg",
+		"VintageEx"
+	]
+}
