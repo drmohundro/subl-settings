@@ -2,27 +2,15 @@
 	"auto_upgrade_last_run": null,
 	"installed_packages":
 	[
-		"ApplySyntax",
 		"Base16 Color Schemes",
-		"BracketHighlighter",
 		"CoffeeScript",
-		"ExportHtml",
 		"Git",
-		"GitGutter",
-		"GoSublime",
-		"LESS",
 		"Markdown Preview",
 		"MarkdownEditing",
 		"Package Control",
 		"PlainTasks",
 		"PowerShell",
-		"Sass",
-		"SideBarEnhancements",
-		"SmartMarkdown",
-		"SublimeHg",
 		"SublimeLinter",
-		"Theme - Nil",
-		"Theme - Soda",
-		"VintageEx"
+		"Theme - Spacegray"
 	]
 }

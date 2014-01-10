@@ -1,52 +1,16 @@
-desc "Install Sublime Text 2 settings"
+desc "Install Sublime Text 3 settings"
 task :install do
-  replace_all = false
-  Dir['*'].each do |file|
-    next if %w[Rakefile README.md LICENSE].include? file
-
-    if File.exist?(File.join(root_path, file))
-      if File.identical? file, File.join(root_path, file)
-        puts "identical #{file}"
-      elsif replace_all
-        replace_file(file)
-      else
-        print "overwrite #{file}? [ynaq] "
-        case $stdin.gets.chomp
-        when 'a'
-          replace_all = true
-          replace_file(file)
-        when 'y'
-          replace_file(file)
-        when 'q'
-          exit
-        else
-          puts "skipping #{file}"
-        end
-      end
-    else
-      link_file(file)
-    end
-  end
+  link_subl_settings
 end
 
-def replace_file(file)
-  FileUtils.rm_rf "#{root_path}/#{file}"
-  link_file(file)
-end
+def link_subl_settings
+  link = "#{root_path}"
+  target = "#{Dir.pwd}"
 
-def link_file(file)
-  puts "linking #{file}"
-
-  link = "#{root_path}/#{file}"
-  target = "#{Dir.pwd}/#{file}"
+  puts "linking #{file} to #{target}"
 
   if is_windows?
-    mklink_opts = File.directory?(target) ? "/D" : ""
-
-    link.gsub! '/', "\\"
-    target.gsub! '/', "\\"
-
-    system %Q{cmd /c mklink #{mklink_opts} "#{link}" "#{target}"}
+    system %Q{cmd /c mklink /D "#{link}" "#{target}"}
   else
     system %Q{ln -s "#{target}" "#{link}"}
   end
@@ -58,8 +22,8 @@ end
 
 def root_path
   sublime_root = is_windows? ?
-    "#{ENV['AppData']}/Sublime Text 2" :
-    File.expand_path('~/Library/Application Support/Sublime Text 2')
+    "#{ENV['AppData']}/Sublime Text 3" :
+    File.expand_path('~/Library/Application Support/Sublime Text 3')
 
   "#{sublime_root}/Packages/User"
 end

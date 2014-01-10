@@ -1,20 +1,22 @@
 {
 	"color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
+	"font_face": "Source Code Pro",
+	"font_size": 11,
 	"file_exclude_patterns":
 	[
-		"*.jpg",
-		"*.gif",
-		"*.png",
-		"*.suo",
-		"*.ncrunchsolution.user"
+		"*.tlb",
+		"*.dll",
+		"*.exp",
+		"*.lib",
+		"*.pdb"
 	],
-	"font_face": "Envy Code R",
-	"font_size": 11,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"Vintage",
+		"Markdown"
 	],
-	"theme": "Nil.sublime-theme",
+	"theme": "Spacegray Eighties.sublime-theme",
 	"translate_tabs_to_spaces": true
 }
