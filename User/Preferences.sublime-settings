@@ -1,7 +1,5 @@
 {
 	"color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
-	"font_face": "Source Code Pro",
-	"font_size": 11,
 	"file_exclude_patterns":
 	[
 		"*.tlb",
