@@ -1,6 +1,6 @@
-desc "Install Sublime Text 3 settings"
+desc 'Install Sublime Text 3 settings'
 task :install do
-  Dir.glob('*').select {|f| File.directory? f}.each do |dir|
+  Dir.glob('*').select { |f| File.directory? f }.each do |dir|
     link_user_preferences(dir)
   end
 end
@@ -45,31 +45,34 @@ def link_file(file)
   link = "#{root_path}/#{file}"
   target = "#{Dir.pwd}/#{file}"
 
-  ensure_link_directory_exists(link)  
+  ensure_link_directory_exists(link)
 
-  if is_windows?
-    link.gsub! '/', "\\"
-    target.gsub! '/', "\\"
+  if windows?
+    link.gsub! '/', '\\'
+    target.gsub! '/', '\\'
 
-    system %Q{cmd /c mklink "#{link}" "#{target}"}
+    system %(cmd /c mklink "#{link}" "#{target}")
   else
-    system %Q{ln -s "#{target}" "#{link}"}
+    system %(ln -s "#{target}" "#{link}")
   end
 end
 
 def ensure_link_directory_exists(link)
   link_dir = File.dirname(link)
-  Dir.mkdir(link_dir) unless Dir.exists?(link_dir)
+  Dir.mkdir(link_dir) unless Dir.exist?(link_dir)
 end
 
-def is_windows?
+def windows?
   RUBY_PLATFORM =~ /(win32|mingw32)/
 end
 
 def root_path
-  sublime_root = is_windows? ?
-    "#{ENV['AppData']}/Sublime Text 3" :
-    File.expand_path('~/Library/Application Support/Sublime Text 3')
+  sublime_root =
+    if windows?
+      "#{ENV['AppData']}/Sublime Text 3"
+    else
+      File.expand_path('~/Library/Application Support/Sublime Text 3')
+    end
 
   "#{sublime_root}/Packages"
 end
